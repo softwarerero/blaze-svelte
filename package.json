@@ -1,0 +1,31 @@
+{
+  "name": "blaze-svelte",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.3.4",
+    "meteor-node-stubs": "^0.4.1",
+    "svelte": "^3.12.1",
+    "svelte-routing": "^1.4.0"
+  },
+  "meteor": {
+    "testModule": "tests/main.js",
+    "nodeModules": {
+      "recompile": {
+        "svelte-routing": [
+          "client",
+          "server"
+        ]
+      }
+    }
+  },
+  "svelte:compiler": {
+    "hydratable": true,
+    "css": false
+  }
+}
